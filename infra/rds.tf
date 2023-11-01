@@ -24,7 +24,7 @@ module "rds" {
   maintenance_window = "Mon:00:00-Mon:03:00"
   backup_window      = "03:00-06:00"
 
-#   create_db_subnet_group = false
+  create_db_subnet_group = true
   subnet_ids             = [aws_subnet.soat-public-subnet-1.id, aws_subnet.soat-public-subnet-2.id, aws_subnet.soat-public-subnet-3.id]
   vpc_security_group_ids = [aws_security_group.soat-http-sg.id]
 
