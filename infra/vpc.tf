@@ -23,14 +23,6 @@ resource "aws_subnet" "soat-public-subnet-2" {
   }
 }
 
-resource "aws_subnet" "soat-public-subnet-3" {
-  vpc_id = aws_vpc.soat-vpc.id
-  cidr_block = "10.0.32.0/20"
-  tags = {
-    Name = "soat-public-subnet-3"
-  }
-}
-
 resource "aws_internet_gateway" "soat-igw" {
   
     vpc_id = aws_vpc.soat-vpc.id
@@ -63,12 +55,7 @@ resource "aws_route_table_association" "soat-route-table-2" {
   route_table_id = aws_route_table.soat-route-table.id
 }
 
-resource "aws_route_table_association" "soat-route-table-3" {
-  subnet_id = aws_subnet.soat-public-subnet-3.id
-  route_table_id = aws_route_table.soat-route-table.id
-}
-
 resource "aws_db_subnet_group" "soat-subnet-group" {
   name       = "my-db-subnet-group"
-  subnet_ids = [aws_subnet.soat-public-subnet-1.id, aws_subnet.soat-public-subnet-2.id, aws_subnet.soat-public-subnet-3.id]
+  subnet_ids = [aws_subnet.soat-public-subnet-1.id, aws_subnet.soat-public-subnet-2.id]
 }
