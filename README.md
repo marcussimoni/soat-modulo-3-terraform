@@ -7,10 +7,10 @@ Projeto do tech challenge para avaliação do módulo 3 do curso Software Archit
 O diagrama abaixo descreve os serviços que serão provisionados via terraform.
 
 Serviços que serão criados pelo terraform:
-1. VPC 
-2. Security Group
-3. Application Load Balancer
-4. RDS - Postgresql
+- VPC 
+- Security Group
+- Application Load Balancer
+- RDS - Postgresql
 
 
 ![alt text](./img/aws-diagram.png)
