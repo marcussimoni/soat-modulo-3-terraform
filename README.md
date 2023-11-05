@@ -9,7 +9,8 @@ O diagrama abaixo descreve os serviços que serão provisionados via terraform.
 Serviços que serão criados pelo terraform:
 - VPC 
 - Security Group
-- Application Load Balancer
+- EC2 - Application Load Balancer
+- ECS - Fargate
 - RDS - Postgresql
 
 
