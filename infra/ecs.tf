@@ -25,7 +25,23 @@ resource "aws_ecs_task_definition" "soat-api-backend" {
       environment = [
         {
             name = "SPRING_PROFILES_ACTIVE"
-            value = "h2"
+            value = "prd"
+        },
+        {
+            name = "POSTGRES_CONNECTION_URL"
+            value = ""
+        },
+        {
+            name = "POSTGRES_USERNAME"
+            value = ""
+        },
+        {
+            name = "POSTGRES_PASSWORD"
+            value = ""
+        },
+        {
+            name = "SWAGGER_URL"
+            value = ""
         }
       ]
       logConfiguration = {
@@ -60,7 +76,7 @@ resource "aws_ecs_service" "soat-api-backend-service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups = [aws_security_group.soat-http-sg.id]
+    security_groups = [aws_security_group.soat-http-sg.id, aws_security_group.soat-postgres-sg.id]
     subnets         = [aws_subnet.soat-public-subnet-1.id,aws_subnet.soat-public-subnet-2.id]
     assign_public_ip = true
   }
