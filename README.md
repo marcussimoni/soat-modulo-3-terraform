@@ -10,6 +10,7 @@ Serviços que serão criados pelo terraform:
 - VPC 
 - Security Group
 - Application Load Balancer
+- ECS - Fargate
 - RDS - Postgresql
 
 
